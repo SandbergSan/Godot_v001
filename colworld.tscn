@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://colworld.gd" type="Script" id=1]
 [ext_resource path="res://obstacle.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://princess.png" type="Texture" id=4]
 [ext_resource path="res://circle.png" type="Texture" id=5]
 [ext_resource path="res://long_obstacle.png" type="Texture" id=6]
+[ext_resource path="res://test.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -124,6 +125,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 position = Vector2( 233.06, 223.436 )
 
 [node name="moving_platform1" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 274.142, 152 )
 
 [node name="collision" type="CollisionShape2D" parent="moving_platform1"]
@@ -138,6 +140,7 @@ playback_process_mode = 0
 anims/leftright = SubResource( 4 )
 
 [node name="moving_platform2" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 88.3493, 284.689 )
 
 [node name="collision" type="CollisionShape2D" parent="moving_platform2"]
@@ -153,6 +156,7 @@ anims/leftright = SubResource( 5 )
 anims/updown = SubResource( 6 )
 
 [node name="princess" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 97, 72 )
 
 [node name="collision" type="CollisionShape2D" parent="princess"]
@@ -174,6 +178,7 @@ You Saved The Princess!"
 align = 1
 
 [node name="oneway1" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 439, 308 )
 
 [node name="sprite" type="Sprite" parent="oneway1"]
@@ -185,6 +190,7 @@ shape = SubResource( 8 )
 one_way_collision = true
 
 [node name="oneway2" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 456, 308 )
 
 [node name="sprite" type="Sprite" parent="oneway2"]
@@ -196,6 +202,7 @@ shape = SubResource( 8 )
 one_way_collision = true
 
 [node name="oneway3" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 472, 308 )
 
 [node name="sprite" type="Sprite" parent="oneway3"]
@@ -207,6 +214,7 @@ shape = SubResource( 8 )
 one_way_collision = true
 
 [node name="oneway4" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 487, 308 )
 
 [node name="sprite" type="Sprite" parent="oneway4"]
@@ -218,6 +226,7 @@ shape = SubResource( 8 )
 one_way_collision = true
 
 [node name="circle" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 241.169, 304.126 )
 
 [node name="sprite" type="Sprite" parent="circle"]
@@ -239,6 +248,7 @@ position = Vector2( 0, -37.4108 )
 texture = ExtResource( 2 )
 
 [node name="platform" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 251.44, 396.557 )
 rotation = -0.428054
 
@@ -249,6 +259,7 @@ texture = ExtResource( 6 )
 shape = SubResource( 12 )
 
 [node name="platform1" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 369.116, 394.016 )
 rotation = 0.465931
 
@@ -257,5 +268,19 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform1"]
 shape = SubResource( 12 )
+
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 395.971, 245.908 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 356.554, 250.171 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 366.223, 225.713 )
+
+[node name="Floor" type="Sprite" parent="."]
+position = Vector2( 148.488, 188.918 )
+rotation = 1.90415
+texture = ExtResource( 4 )
 
 [connection signal="body_entered" from="princess" to="." method="_on_princess_body_enter"]
